@@ -1,0 +1,45 @@
+<div class="shpping-add">
+  <p class="add-shpping">{{ block.settings.heading }}</p>
+</div>
+<div class="city-shipping">
+  {% if block.settings.city-1 != blank %}
+<div class="shipping-city">
+  <a href="{{ block.settings.city-link1 }}"><p class="" >{{ block.settings.city-1 }}</p></a>
+</div>
+   {% endif %}
+   {% if block.settings.city-2 != blank %}
+<div class="shipping-city">
+  <a href="{{ block.settings.city-link2 }}"><p class="" >{{ block.settings.city-2 }}</p></a>
+</div>
+  {% endif %}
+   {% if block.settings.city-3 != blank %}
+<div class="shipping-city">
+  <a href="{{ block.settings.city-link3 }}"><p class="" >{{ block.settings.city-3 }}</p></a>
+</div>
+   {% endif %}  
+   {% if block.settings.city-4 != blank %}
+<div class="shipping-city">
+  <a href="{{ block.settings.city-link4 }}"><p class="" >{{ block.settings.city-4 }}</p></a>
+</div>
+   {% endif %}  
+   {% if block.settings.city-5 != blank %}  
+<div class="shipping-city">
+  <a href="{{ block.settings.city-link5 }}"><p class="" >{{ block.settings.city-5 }}</p></a>
+</div>
+  {% endif %}
+   {% if block.settings.city-6 != blank %}  
+<div class="shipping-city">
+  <a href="{{ block.settings.city-link6 }}"><p class="" >{{ block.settings.city-6 }}</p></a>
+</div>
+  {% endif %}
+    {% if block.settings.city-7 != blank %} 
+<div class="shipping-city">
+  <a href="{{ block.settings.city-link7 }}"><p class="" >{{ block.settings.city-7 }}</p></a>
+</div>
+  {% endif %}
+  {% if block.settings.city-8 != blank %}
+<div class="shipping-city">
+  <a href="{{ block.settings.city-link8 }}"><p class="" >{{ block.settings.city-8 }}</p></a>
+</div>
+  {% endif %}  
+</div>

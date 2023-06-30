@@ -1,0 +1,262 @@
+<div class="containt">
+    <div class="containre-11">
+      <div class="section-title-1 text-center mb-5 aos-init aos-animate" style="--text-color: black;">
+  
+        <h3 class="section-title-1 text-center mb-5 aos-init aos-animate ">{{ section.settings.heading }}</h3>
+         </div>
+        <div class="slider slider-nav">
+          {%- for block in section.blocks -%}
+            <div>
+                <div class="main-box">
+                    <img class="image-people" src="{{block.settings.author-image | img_url: '2000x2000'}}">
+                    <div class="box">
+                        <div class="text">
+                            <img class="img1" src="{{block.settings.quotes-up | img_url: '2000x2000'}}">
+                            <p class="auther-name-33">{{ block.settings.author-name }}</p>
+                            <div class="stras">
+                                <i class="" aria-hidden="true"></i>
+                                <i class="star-cl fa {{ block.settings.star1 }}" aria-hidden="true"></i>
+                                <i class="star-cl fa {{ block.settings.star2 }}" aria-hidden="true"></i>
+                                <i class=" star-cl fa {{ block.settings.star3 }}" aria-hidden="true"></i>
+                                <i class="star-cl fa {{ block.settings.star4 }}" aria-hidden="true"></i>
+                                <i class="star-cl fa {{ block.settings.star5 }}" aria-hidden="true"></i>
+                            </div>
+                            <span class="font-testimonail">{{ block.settings.testimonail }}</span>
+                            <img class="img2" src="{{block.settings.quotes-down | img_url: '2000x2000'}}">
+                        </div>         
+                    </div>
+                </div>
+            </div>
+          {%- endfor -%}
+        </div>   
+    </div>
+</div>
+
+{% schema %}
+{
+"name": "Testimonial",
+"settings": [
+{
+  "type": "text",
+  "id": "heading",
+  "label": "Heading"
+},
+{
+  "type": "color",
+  "id": "background-color",
+  "label": "Background Color"
+},
+{
+  "type": "color",
+  "id": "star-color",
+  "label": "Star Color"
+}
+  
+
+],
+   "blocks": [
+      {
+        "type": "column",
+        "name": "column",
+        "settings": [
+{
+  "type": "image_picker",
+  "id": "quotes-up",
+  "label": "Quotes"
+},
+{
+  "type": "image_picker",
+  "id": "author-image",
+  "label": "Author-Image"
+},
+{
+  "type": "text",
+  "id": "author-name",
+  "label": "Author Name"
+},
+{
+  "type": "html",
+  "id": "star1",
+  "label": "Star"
+},
+{
+  "type": "html",
+  "id": "star2",
+  "label": "Star"
+},
+{
+  "type": "html",
+  "id": "star3",
+  "label": "Star"
+},
+{
+  "type": "html",
+  "id": "star4",
+  "label": "Star"
+},
+{
+  "type": "html",
+  "id": "star5",
+  "label": "Star"
+},
+{
+  "type": "richtext",
+  "id": "testimonail",
+  "label": "Testimonail"
+},
+{
+  "type": "image_picker",
+  "id": "quotes-down",
+  "label": "Quotes"
+}
+
+		]
+	}
+],
+"presets": [
+{
+"name": "Testimonial"
+}
+]
+}
+{% endschema %}
+<style>
+  @media only screen and (min-width:749px){
+.slider-nav  div.slick-center{
+  opacity:1 !important;
+}
+  .slider-nav  div.slick-slide{
+  opacity:0.5;
+}
+  }
+  
+   .containt{
+     background:{{ section.settings.background-color }};
+   }
+   .headding-main-slider{
+    text-align: center;
+   }
+  .star-cl {
+    color:{{ section.settings.star-color }};
+  }
+   .auther-name-33{
+    text-align: center;
+    margin-top: 10px;
+   }
+    .box{
+        width: 100%;
+      max-width:600px;
+        background: #F4ECE1;
+        border-bottom: 4px solid #733518;
+        border-radius: 10px;
+        margin: auto;
+        padding: 0px 30px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+    .image-people{
+       width: 100%;
+    max-width: 90px;
+    margin: auto;
+    margin-bottom: -40px;
+    }
+    .font-testimonail p{
+        margin: 30px;
+        margin-top: 10px;
+    }
+    .img1{
+        position: relative;
+        right: 0%;
+        top: 16px;   
+        width: 100%;
+        max-width: 40px;
+    }
+    .img2{
+        position: relative;
+        left:88%;
+        top: -16px;   
+         width: 100%;
+        max-width: 40px;
+    }
+    .slick-slide {
+     height: auto;
+ }
+
+    .slick-dots li {
+     width: 35px;
+         height: 5px;
+    }
+
+ .slick-dots li button {
+    width: 35px;
+     height: 5px;
+
+ }
+.slick-dots li button:before {
+    width: 35px;
+    height: 5px;
+    content: '';
+    background-color: #733518;
+    border-radius: 0px;
+}
+  .containre-11{
+   padding-top: 40px;
+    padding-bottom: 40px;
+  }
+.main-box{
+  margin:20px;
+}
+  .text{
+    padding:15px;
+  }
+</style>
+
+
+<script>
+$('.slider-nav').slick({
+centerMode: true,
+centerPadding: '330px',
+slidesToShow: 1,
+dots: true,
+
+arrows: false,
+responsive: [
+{
+breakpoint: 992,
+settings: {
+arrows: false,
+dots: true,
+centerMode: true,
+
+centerPadding: '110px',
+slidesToShow: 1
+}
+},
+{
+breakpoint: 768,
+settings: {
+arrows: false,
+dots: true,
+centerMode: false,
+
+centerPadding: '90px',
+slidesToShow: 1
+}
+},
+{
+breakpoint: 480,
+settings: {
+arrows: false,
+dots: true,
+
+centerMode: false,
+centerPadding: '60px',
+slidesToShow: 1
+}
+}
+]
+});
+
+</script>
+
+

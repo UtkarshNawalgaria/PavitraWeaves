@@ -1,0 +1,169 @@
+<!-- newsletter.liquid -->
+<style>
+/*   .customstyle{{ section.id }} .form-group .form-control{
+    border-bottom-color:{{section.settings.colorborder}};
+  } */
+</style>
+<div class="customstyle{{ section.id }}" data-aos="{{section.settings.animation}}" >
+  {%- include 'style-section' -%}
+  <div class="{{ section.settings.setwidth }} text-center">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-8">
+        <div class=" p-4 p-md-5">
+          {%- include 'section-heading' -%} 
+            <div class="form-vertical px-md-5">
+              {%- form 'customer' -%}
+                {{ form.errors | default_errors }}
+                {%- if form.posted_successfully? -%}
+                  <p class="form-success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+                {%- else -%}
+                  <input type="hidden" name="contact[tags]" value="newsletter">
+                  <label for="NewsletterEmail-{{ block.id }}" class="label--hidden">{{ 'general.newsletter_form.newsletter_label' | t }}</label>
+                  <div class=" form-group chnage-newsletter text-center input-groups ">
+                    <input class="form-control1" type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_placeholder' | t }}" name="contact[email]" id="NewsletterEmail-{{ block.id }}" autocorrect="off" autocapitalize="off">
+                    <div class="input-group-append pl-3">
+                      <button type="submit" class="btn" name="commit">
+<!--                         <span class="d-none d-sm-block">{{ 'general.newsletter_form.submit' | t }}</span> -->
+                        <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 7C0.447715 7 0 7.44772 0 8C0 8.55228 0.447715 9 1 9L1 7ZM19.7071 8.70711C20.0976 8.31658 20.0976 7.68342 19.7071 7.29289L13.3431 0.928932C12.9526 0.538408 12.3195 0.538408 11.9289 0.928932C11.5384 1.31946 11.5384 1.95262 11.9289 2.34315L17.5858 8L11.9289 13.6569C11.5384 14.0474 11.5384 14.6805 11.9289 15.0711C12.3195 15.4616 12.9526 15.4616 13.3431 15.0711L19.7071 8.70711ZM1 9L19 9V7L1 7L1 9Z" fill="#733518"/>
+                        </svg>
+<!--                         <span class="d-block d-sm-none"><i class="icon-send"></i></span> -->
+                      </button>
+                    </div>
+                  </div>
+                {%- endif -%}
+              {%- endform -%}
+            </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Newsletter",
+  "class": "index-section",
+  "settings": [
+  {
+    "type": "select",
+    "id": "animation",
+    "options": [
+      { "value": "", "label": "None"},
+      { "value": "fade", "label": "Fade"},
+      { "value": "fade-up", "label": "Fade Up"},
+      { "value": "fade-down", "label": "Fade Down"},
+      { "value": "fade-left", "label": "Fade Left"},
+      { "value": "fade-right", "label": "Fade Right"},
+      { "value": "fade-up-right", "label": "Fade Up Right"},
+      { "value": "fade-up-left", "label": "Fade Up Left"},
+      { "value": "fade-down-right", "label": "Fade Down Right"},
+      { "value": "fade-down-left", "label": "Fade Down Left"},
+      { "value": "flip-up", "label": "Flip Up"},
+      { "value": "flip-down", "label": "Flip Down"},
+      { "value": "flip-left", "label": "Flip Left"},
+      { "value": "flip-right", "label": "Flip Right"},
+      { "value": "slide-up", "label": "Slide Up"},
+      { "value": "slide-down", "label": "Slide Down"},
+      { "value": "slide-left", "label": "Slide Left"},
+      { "value": "slide-right", "label": "Slide Right"},
+      { "value": "zoom-in", "label": "Zoom In"},
+      { "value": "zoom-in-up", "label": "Zoom In Up"},
+      { "value": "zoom-in-down", "label": "Zoom In Down"},
+      { "value": "zoom-in-left", "label": "Zoom In Left"},
+      { "value": "zoom-in-right", "label": "Zoom In Right"},
+      { "value": "zoom-out", "label": "Zoom Out"},
+      { "value": "zoom-out-up", "label": "Zoom Out Up"},
+      { "value": "zoom-out-down", "label": "Zoom Out Down"},
+      { "value": "zoom-out-left", "label": "Zoom Out Feft"},
+      { "value": "zoom-out-right", "label": "Zoom Out Right"}
+    ],
+    "label": "Select Animation"
+  },
+  {
+    "type": "text",
+    "id": "paddingsection",
+    "label": "Padding Section",
+    "default": "0px 0px 0px 0px",
+    "info": "Padding: Top Right Bottom Left"
+  },
+  {
+    "type": "text",
+    "id": "paddingmobile",
+    "label": "Padding Section Mobile",
+    "default": "60px 0px 60px 0px",
+    "info": "Padding: Top Right Bottom Left"
+  },
+  {
+    "type": "text",
+    "id": "marginsection",
+    "label": "Margin Section",
+    "default": "0px 0px 0px 0px",
+    "info": "Margin: Top Right Bottom Left"
+  },
+  {
+    "type": "text",
+    "id": "marginmobile",
+    "label": "Margin Mobile",
+    "default": "0px 0px 0px 0px",
+    "info": "Margin: Top Right Bottom Left"
+  },
+  {
+    "type": "color",
+    "id": "bgsection",
+      "label": "Background Section",
+      "default": "#fefefe"
+  },
+  {
+    "type": "text",
+    "id": "title_top",
+    "label": "Sub Title Top",
+    "default": "Sub Title Top"
+  },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Title Newletters"
+    },
+    {
+      "type": "textarea",
+      "id": "des",
+      "label": "HTML / Description"
+    },
+    {
+      "type": "select",
+      "id": "setwidth",
+      "label": "Full Width",
+      "default": "container",
+      "options": [
+        {
+          "value": "container",
+          "label": "Box"
+        },
+        {
+          "value": "container-fluid",
+          "label": "Container Fluid"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "colorborder",
+        "label": "Border Color Input",
+        "default": "#222222"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter",
+      "category": "Promotional"
+    }
+  ]
+}
+{% endschema %}

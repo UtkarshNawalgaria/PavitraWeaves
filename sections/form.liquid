@@ -1,0 +1,189 @@
+<div class="back-ground-color">
+    <div class="container-area">
+            <div class="form-header">
+                <p class="">{{ section.settings.heading }}</p>
+            </div>
+
+    <form action="https://sheetdb.io/api/v1/ke0pit7h5elhg" method="post" id="https://pavitra-weaves.myshopify.com">
+            <div class="form-area">
+                <div class="input-1">
+                    <label for="name" class="label-name my-width">{{ section.settings.display-sheet-input }}</label>
+                    <input type="text" class="name-input my-width" id="name" name="data[{{ section.settings.display-sheet-input }}]">
+                </div>
+                <div class="my-flex">
+                    <div class="input-2">
+                        <label for="email" class="label-name my-width">{{ section.settings.display-sheet-input2 }}</label>
+                        <input type="email" class="name-input my-width" id="email" name="data[{{ section.settings.display-sheet-input2 }}]">
+                    </div>
+                    <div class="input-2">
+                        <label for="Country" class="label-name my-width">{{ section.settings.display-sheet-input3 }}</label>
+                        <input type="text" class="name-input my-width" id="country" name="data[{{ section.settings.display-sheet-input3 }}]">
+                    </div>
+                </div>
+                <div class="my-flex">
+                    <div class="input-2">
+                        <label for="select" class="label-name my-width">{{ section.settings.display-sheet-input4 }}</label>
+                        <select name="data[Selectplatform]" class="name-input my-width" id="{{ section.settings.display-sheet-input4 }}">
+                            <option value="" disabled="disabled">Please select</option>
+                            <option value="Facetime">Facetime</option>
+                            <option value="WhatsApp" selected="selected">WhatsApp</option>
+                        </select>
+                    </div>
+                    <div class="input-2">
+                        <label for="number" class="label-name my-width">{{ section.settings.display-sheet-input5 }}</label>
+                        <input type="tel" class="name-input my-width" id="phone" name="data[{{ section.settings.display-sheet-input5 }}]" placeholder="e.g. +1 ..">
+                    </div>
+                </div>
+                <div class="input-3">
+                    <label for="Date & time" class="label-name my-width">{{ section.settings.display-sheet-input6 }}</label>
+                    <textarea type="textarea" rows="5" class="for-txt-area name-input my-width" id="Date&Time" name="data[{{ section.settings.display-sheet-input6 }}]" placeholder="10:30AM to 05:30PM IST [MON - SAT] Only"></textarea>
+                </div>
+            </div>
+            <input class="my-bttn" type="submit" value="submit">
+        </form>
+
+    </div>
+</div>
+
+
+<style>
+    .back-ground-color{
+        background-color: #fff;
+    }
+    .container-area{
+        width: 100%;
+        max-width: 1100px;
+        margin: auto;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .form-header{
+        margin-bottom: 30px;
+    }
+    .my-width{
+        width: 100%;
+    }
+    .label-name{
+        margin-bottom: 5px;
+        display: block;
+    }
+    .name-input{
+        height: 42px;
+        border: none;
+        background-color: #f1f1f1;
+        box-shadow: 0 1px 3px rgb(50 50 93 / 15%), 0 1px 0 rgb(0 0 0 / 2%);
+        padding: 10px 12px;
+    }
+    .name-input:focus-visible {
+        outline: none;
+    }
+    .my-flex{
+        display: flex;
+        width: 100%;
+        column-gap: 15px;
+    }
+    .input-1 {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .input-2{
+        width: 100%;
+        margin-top: 20px;
+    }
+    .input-3{
+        width: 100%;
+        margin-top: 20px;
+    }
+    .for-txt-area{
+        resize: vertical;
+        height: initial;
+    }
+    .my-bttn{
+        margin-top: 20px;
+        border: none;
+        background-color: #000;
+        color: #fff;
+        padding: 10px 25px;
+    }
+    @media only screen and (max-width:768px){
+        .my-flex{
+            flex-direction: column;
+        }
+    }
+    </style> 
+
+
+
+
+{% schema %}
+{
+"name": "Form",
+"settings": [
+
+  {
+  "type": "textarea",
+  "id": "heading",
+  "label": "Heading"
+},
+{
+  "type": "text",
+  "id": "display-sheet-input",
+  "label": "Sheet Input"
+},
+{
+  "type": "text",
+  "id": "display-sheet-input2",
+  "label": "Sheet Input"
+},
+{
+  "type": "text",
+  "id": "display-sheet-input3",
+  "label": "Sheet Input"
+},
+{
+  "type": "text",
+  "id": "display-sheet-input4",
+  "label": "Sheet Input"
+},
+{
+  "type": "text",
+  "id": "display-sheet-input5",
+  "label": "Sheet Input"
+},
+{
+  "type": "text",
+  "id": "display-sheet-input6",
+  "label": "Sheet Input"
+}
+  
+
+],
+"presets": [
+{
+"name": "Form"
+}
+]
+}
+{% endschema %}
+
+
+<script>
+    var form = document.getElementById('https://pavitra-weaves.myshopify.com');
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  fetch(form.action, {
+      method : "POST",
+      body: new FormData(document.getElementById("https://pavitra-weaves.myshopify.com")),
+  }).then(
+      response => response.json()
+  ).then((html) => {
+    // you can put any JS code here
+     window.open('https://pavitra-weaves.myshopify.com');
+
+  });
+});
+</script>
+
+
+
+

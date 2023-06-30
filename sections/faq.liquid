@@ -1,0 +1,163 @@
+<div class="bg-colors">
+<div class="wrappers">
+  <div class="section__header text-center">
+   <h3 class="section-title-1 text-center mb-3 aos-init aos-animate">{{ section.settings.heading }}</h3>
+  </div>
+    <div class="pad-area">
+
+      {%- for block in section.blocks -%}
+        <div class="containeraa">
+            <div class="questionss">{{ block.settings.que1 }}</div>
+            <div class="answercont">
+                <div class="answer">
+                    <p class="ans-pera">{{ block.settings.ans1 }}</p>
+                </div>
+            </div>
+        </div>
+{%- endfor -%}
+
+
+
+    </div>
+</div>
+</div>
+
+
+
+
+{% schema %}
+{
+"name": "FAQ's",
+"settings": [
+{
+  "type": "color",
+  "id": "background1",
+  "label": "Background"
+},
+{
+  "type": "html",
+  "id": "heading",
+  "label": "Heading"
+},
+
+{
+  "type": "color",
+  "id": "box-color1",
+  "label": "Box-Background"
+}
+
+],
+"blocks":[
+ {
+        "type": "text_block",
+        "name": "Column",
+        "settings": [
+		{
+  "type": "text",
+  "id": "que1",
+  "label": "Heading"
+},
+{
+  "type": "textarea",
+  "id": "ans1",
+  "label": "Description"
+}
+
+
+		]
+	}
+],
+"presets": [
+{
+"name": "FAQ's"
+}
+]
+}
+{% endschema %}
+<style>
+.bg-colors{
+    text-aling:center;
+    background: {{ section.settings.background1 }};
+}
+  .ans-pera{
+    font-weight: 400;
+    
+  }
+.wrappers{
+    padding: 30px;
+}
+.containeraa{
+  box-shadow:0px 4px 0px #733518;
+  width: 100%;
+  max-width: 650px;
+  margin: auto;
+  background: {{ section.settings.box-color1 }};
+  padding: 10px 35px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.questionss {
+	padding: 10px 30px 10px 5px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+    transition: all .3s;
+      font-weight: 600;
+}
+.questionss::after {
+	content: "\f078";
+	font-size: 12px;
+	position: absolute;
+	right: 5px;
+	transition: 0.2s;
+    font-family: FontAwesome;
+    font-weight: 500;
+}
+.questionss.active::after {
+	content: "\f077";
+}
+.answercont {
+	max-height: 0;
+	overflow: hidden;
+	transition: 0.3s;
+}
+.answer {
+	padding: 5px 10px 15px;
+/ 	line-height: 1.5rem; /
+}
+.center{
+    text-align: center;
+}
+
+@media only screen and (max-width:749px){
+    .containeraa{
+        padding: 10px 10px;
+    }
+}
+@media only screen and (max-width:480px){
+    .questionss {
+        padding: 10px 40px 10px 5px;
+    }
+}
+</style>
+
+<script>
+let questionss = document.querySelectorAll(".questionss");
+questionss.forEach(questionss => {
+	questionss.addEventListener("click", event => {
+		const active = document.querySelector(".questionss.active");
+		if (active && active !== questionss) {
+			active.classList.toggle("active");
+			active.nextElementSibling.style.maxHeight = 0;
+		}
+		questionss.classList.toggle("active");
+		const answer = questionss.nextElementSibling;
+		if (questionss.classList.contains("active")) {
+			answer.style.maxHeight = answer.scrollHeight + "px";
+		} else {
+			answer.style.maxHeight = 0;
+		}
+	})
+})
+</script>

@@ -1,0 +1,72 @@
+
+<div class="back-color">
+  <div class="container-fluid">
+    <h6 class="text-center">{{ section.settings.sub-heading }}</h6>
+    <h3 class="section-title-1 text-center mb-3 aos-init aos-animate">{{ section.settings.heading }}</h3>
+    <span class="text-middle font-family-2 mb-3 aos-init aos-animate">{{ section.settings.description }}</span>
+    <div class="text-center">
+    <a href="{{ section.settings.button-link }}"><button class="btn  btn-theme">{{ section.settings.botton-text }}</button></a>
+      
+    </div>
+    </div>
+  </div>
+
+
+   
+     
+
+{% schema %}
+{
+"name": "Video Booking",
+"settings": [
+{
+  "type": "text",
+  "id": "sub-heading",
+  "label": "Sub Heading"
+},
+{
+  "type": "text",
+  "id": "heading",
+  "label": "Heading"
+},
+{
+  "type": "richtext",
+  "id": "description",
+  "label": "Description"
+},
+{
+  "type": "text",
+  "id": "botton-text",
+  "label": "Botton Text"
+},
+  {
+  "type": "url",
+  "id": "button-link",
+  "label": "Button link"
+},
+
+{
+  "type": "color",
+  "id": "background-color",
+  "label": "Background Color"
+}
+
+
+  
+],
+"presets": [
+{
+"name": "Video Booking"
+}
+]
+}
+{% endschema %}
+
+
+<style>
+  .back-color{
+    padding:40px 0px;
+    background:{{ section.settings.background-color }};
+  }
+</style>
+

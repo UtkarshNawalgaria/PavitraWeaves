@@ -1,0 +1,89 @@
+<div id="section">
+  <div class="article">
+    <h3>{{ section.settings.heading1 }}</h3>
+    <p>{{ section.settings.description1 }}   
+    </p>
+    <div class="moretext">
+    <h3 class="">{{ section.settings.after-heading }}</h3>
+  
+      <p class="">
+      {{ section.settings.after-description }}  
+    </p>
+    </div>
+  <h5>
+  <a class="moreless-button" href="#">{{ section.settings.button-text }}</a>
+    </h5>
+    </div>
+</div>
+
+{% schema %}
+{
+"name": "Read More",
+"settings": [
+{
+  "type": "text",
+  "id": "heading1",
+  "label": "Heading"
+},
+{
+  "type": "richtext",
+  "id": "description1",
+  "label": "Description"
+},  
+{
+  "type": "text",
+  "id": "button-text",
+  "label": "Button Text"
+},
+{
+  "type": "header",
+  "content": "Open Readmore"
+},  
+{
+  "type": "text",
+  "id": "after-heading",
+  "label": "Heading"
+},  
+{
+  "type": "richtext",
+  "id": "after-description",
+  "label": "Description"
+}
+
+
+  
+],
+"presets": [
+{
+"name": "Read More"
+}
+]
+}
+{% endschema %}
+<style>
+  #section {
+    width:100%;
+  word-wrap: break-word;
+}
+.moreless-button{
+  text-decoration: underline;
+}
+.moretext {
+  display: none;
+}
+  .article{
+   padding: 40px 40px 40px 40px;
+  }
+
+</style>
+<script>
+  // The function toggles more (hidden) text when the user clicks on "Read more". The IF ELSE statement ensures that the text 'read more' and 'read less' changes interchangeably when clicked on.
+$('.moreless-button').click(function() {
+  $('.moretext').slideToggle();
+  if ($('.moreless-button').text() == "Read more") {
+    $(this).text("Read more")
+  } else {
+    $(this).text("Read less")
+  }
+});
+</script>
